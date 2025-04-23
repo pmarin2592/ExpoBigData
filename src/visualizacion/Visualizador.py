@@ -9,19 +9,19 @@ from Entidades.Entidades import Estudiantes
 
 class Visualizador:
     def __init__(self):
-
+        self.model= None
         self.GD = GestorDatos()
         self.X = None
         self.y = None
 
-    @st.cache_resource
-    def _cargar_modelo(_self):
-        X_train, X_test, y_train, y_test = _self.GD.preparar_datos()
-        _self.model = Modelo(_self.GD.label_encoders, _self.GD.scaler)
-        _self.model.entrenar_modelo(X_train, y_train)
-        _self.X = _self.GD.df.drop('pass_fail', axis=1)
-        _self.y = _self.GD.df['pass_fail']
-        _self.model.evaluar_modelo( _self.X,  _self.y, X_test, y_test)
+
+    def _cargar_modelo(self):
+        X_train, X_test, y_train, y_test = self.GD.preparar_datos()
+        self.model = Modelo(self.GD.label_encoders, self.GD.scaler)
+        self.model.entrenar_modelo(X_train, y_train)
+        self.X = self.GD.df.drop('pass_fail', axis=1)
+        self.y = self.GD.df['pass_fail']
+        self.model.evaluar_modelo( self.X,  self.y, X_test, y_test)
 
     def cargar_formulario(self):
         past_exam_scores = st.number_input("Puntaje de exámenes anteriores", min_value=0, max_value=100, value=50)
