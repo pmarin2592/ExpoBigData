@@ -76,17 +76,46 @@ class Visualizador:
         df = self.GD.obtener_df_analisis()
 
         # Gráfico 1: Conteo por predicción
-        fig1 = px.histogram(df, x="prediccion", title="Distribución de Predicciones", color="prediccion")
+
+        fig1 = px.histogram(
+            df,
+            x="prediccion",
+            title="Distribución de Predicciones",
+            color="prediccion",
+            labels={"prediccion": "Predicción"}
+        )
         st.plotly_chart(fig1, use_container_width=True, key="grafico_1")
 
         # Gráfico 2: Boxplot de puntajes por predicción
-        fig2 = px.box(df, x="prediccion", y="past_exam_scores", title="Notas previas según predicción",
-                      color="prediccion")
+        fig2 = px.box(
+            df,
+            x="prediccion",
+            y="past_exam_scores",
+            title="Notas Previas según la Predicción",
+            color="prediccion",
+            labels={
+                "prediccion": "Predicción",
+                "past_exam_scores": "Notas de Exámenes Anteriores"
+            }
+        )
         st.plotly_chart(fig2, use_container_width=True, key="grafico_2")
 
         # Gráfico 3: Dispersión asistencia vs horas de estudio
-        fig3 = px.scatter(df, x="study_hours_per_week", y="attendance_rate", color="prediccion",
-                          size="past_exam_scores", title="Asistencia vs Horas de Estudio")
+        fig3 = px.scatter(
+            df,
+            x="study_hours_per_week",
+            y="attendance_rate",
+            color="prediccion",
+            size="past_exam_scores",
+            title="Relación entre Asistencia y Horas de Estudio",
+            labels={
+                "study_hours_per_week": "Horas de Estudio por Semana",
+                "attendance_rate": "Porcentaje de Asistencia",
+                "prediccion": "Predicción",
+                "past_exam_scores": "Notas de Exámenes Anteriores"
+            }
+        )
         st.plotly_chart(fig3, use_container_width=True, key="grafico_3")
+
 
 
