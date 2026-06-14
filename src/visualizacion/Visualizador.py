@@ -24,11 +24,11 @@ class Visualizador:
         self.model.evaluar_modelo( self.X,  self.y, X_test, y_test)
 
     def cargar_formulario(self):
-        past_exam_scores = st.number_input("Puntaje de exámenes anteriores", min_value=0, max_value=100, value=50)
-        study_hours_per_week = st.number_input("Horas de estudio por semana", min_value=0, value=60)
-        attendance_rate = st.number_input("Porcentaje de asistencia (%)", min_value=0.0, max_value=100.0, value=80.0)
-        internet_access = st.selectbox("¿Acceso a Internet en casa?", ["Yes", "No"])
-        extracurricular = st.selectbox("¿Participa en actividades extracurriculares?", ["Yes", "No"])
+        past_exam_scores = st.number_input("¿Cómo has sentido tu rendimiento en los últimos exámenes? Si tuvieras que darme un aproximado de tu nota, ¿Cómo andaríamos?", min_value=0, max_value=100, value=50)
+        study_hours_per_week = st.number_input("Y fuera de las lecciones, ¿cuánto tiempo aproximado le dedicas a repasar a la semana?", min_value=0, value=60)
+        attendance_rate = st.number_input("Contame sobre las herramientas en tu casa, ¿tenés internet estable para hacer los trabajos o se te complica a veces?", min_value=0.0, max_value=100.0, value=80.0)
+        internet_access = st.selectbox("¿Acceso a Internet en casa?", ["Si", "No"])
+        extracurricular = st.selectbox("¿Participa en actividades extracurriculares?", ["Si", "No"])
 
         if st.button("Predecir"):
             datos = {
