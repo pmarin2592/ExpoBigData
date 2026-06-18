@@ -27,8 +27,8 @@ class Visualizador:
         past_exam_scores = st.number_input("¿Cómo has sentido tu rendimiento en las últimas evaluaciones? Si tuvieras que darme un promedio aproximado de tus notas de 1 a 100, ¿cuál sería?", min_value=0, max_value=100, value=50)
         study_hours_per_week = st.number_input("Fuera del horario de clases, en tu rutina normal, ¿cuántas horas a la semana aproximadas le dedicás a repasar o estudiar por tu cuenta?", min_value=0, value=60)
         attendance_rate = st.number_input("En cuanto a las lecciones, ¿qué tan constante lográs ser con la asistencia? ¿Sentís que asistís a la gran mayoría de clases o se te complica? Dame un porcentaje estimado de tu asistencia.", min_value=0.0, max_value=100.0, value=80.0)
-        internet_access = st.selectbox("Hablando de las condiciones en tu casa para hacer trabajos, ¿contás con una conexión a internet estable?", ["Si", "No"])
-        extracurricular = st.selectbox("Además de las materias de la carrera, ¿estás participando en alguna otra actividad de la u, como algún deporte, grupo artístico o voluntariado?", ["Si", "No"])
+        internet_access = st.selectbox("Hablando de las condiciones en tu casa para hacer trabajos, ¿contás con una conexión a internet estable?", ["YES", "NO"])
+        extracurricular = st.selectbox("Además de las materias de la carrera, ¿estás participando en alguna otra actividad de la u, como algún deporte, grupo artístico o voluntariado?", ["YES", "NO"])
 
         if st.button("Predecir"):
             datos = {
